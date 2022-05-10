@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1102266154}
-  inventorySize: 13
+  inventoryData: {fileID: 11400000, guid: 11136f861e750cc14acd40f7485985bf, type: 2}
 --- !u!4 &402542010
 Transform:
   m_ObjectHideFlags: 0
@@ -1296,6 +1296,10 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 1358235451993484537, guid: 9cdfb1c8f61cf5b7696c3508aae3b947, type: 3}
+    - target: {fileID: 4062715205987902274, guid: 06b9fafd48544f2a8be6f89cee44807e, type: 3}
+      propertyPath: image2
+      value: 
+      objectReference: {fileID: 5211798079845979776, guid: 9cdfb1c8f61cf5b7696c3508aae3b947, type: 3}
     - target: {fileID: 4062715205987902274, guid: 06b9fafd48544f2a8be6f89cee44807e, type: 3}
       propertyPath: nameItem
       value: Emerald Neckles

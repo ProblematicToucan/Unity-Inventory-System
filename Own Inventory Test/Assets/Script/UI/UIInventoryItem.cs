@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventoryItem : MonoBehaviour
+public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text quantityText;
@@ -46,7 +46,19 @@ public class UIInventoryItem : MonoBehaviour
         objectSelected.SetActive(true);
     }
 
-    public void OnBeginDrag()
+    public void OnPointerClick(PointerEventData eventData)
+    {     
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnRIghtMouseBtnClick?.Invoke(this);
+        }
+        else
+        {
+            OnItemClicked?.Invoke(this);
+        }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
     {
         if(empty)
         {
@@ -55,28 +67,18 @@ public class UIInventoryItem : MonoBehaviour
         OnItemBeginDrag?.Invoke(this);
     }
 
-    public void OnDrop()
-    {
-        OnItemDroppedOn?.Invoke(this);
-    }
-
-    public void OnEndDrag()
+    public void OnEndDrag(PointerEventData eventData)
     {
         OnItemEndDrag?.Invoke(this);
     }
 
-    public void OnPointerClick(BaseEventData data)
+    public void OnDrop(PointerEventData eventData)
     {
-        if (empty) return;
+        OnItemDroppedOn?.Invoke(this);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
         
-        var pointerData = data as PointerEventData;
-        if (pointerData.button == PointerEventData.InputButton.Right)
-        {
-            OnRIghtMouseBtnClick?.Invoke(this);
-        }
-        else
-        {
-            OnItemClicked?.Invoke(this);
-        }
     }
 }

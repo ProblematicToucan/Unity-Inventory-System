@@ -24,11 +24,10 @@ public class UIInventoryDescription : MonoBehaviour
         this.itemDescription.text = "";
     }
 
-    public void SetDescription(Sprite sprite, int quantity, string name, string description)
+    public void SetDescription(Sprite sprite, string name, string description)
     {
         this.itemImage.gameObject.SetActive(true);
         this.itemImage.sprite = sprite;
-        this.quantityText.text = quantity + "";
         this.itemName.text = name;
         this.itemDescription.text = description;
     }
